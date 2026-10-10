@@ -1,0 +1,186 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Problem status · Proof Observatory</title><style>:root{color-scheme:light;font:15px/1.6 system-ui,sans-serif;color:#203944;background:#f3f6f5}*{box-sizing:border-box}body{margin:0}header{background:#152e3d;color:#fff;padding:24px 5%;letter-spacing:.12em;font-weight:650}header span{float:right;font-size:11px;color:#bdcfd7}main{max-width:1500px;margin:40px auto;padding:0 4%}h1{font:48px/1.2 Georgia,serif;margin:10px 0 16px}h2{font-size:20px;margin-top:0}.eyebrow{color:#207d69;font-size:11px;letter-spacing:.17em;font-weight:700}a{color:#126f5c}small{display:block;color:#667982;font-size:11px}#coverage{border-left:4px solid #229477;padding:10px 16px;background:#e4f1eb}#coverage.warning{border-color:#bd861e;background:#fff1d7}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin:28px 0 16px}.metrics article,.panel{background:#fff;border:1px solid #dce5e6;border-radius:12px;padding:22px}.metrics span{display:block;font-size:12px;color:#627580}.metrics strong{font-size:32px;font-weight:550}.panel{margin:24px 0}.explanation{font-size:13px;color:#627580}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left;font-size:13px}th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#657a85}th,td{padding:14px 12px;border-bottom:1px solid #e4ebed;vertical-align:top}td:first-child{min-width:240px}td[data-field=workers],td[data-field=processes]{min-width:135px}tr.stale{background:#fff8eb}tr.live td[data-field=controller]{color:#147457;font-weight:650}#stages{display:flex;flex-wrap:wrap;gap:10px}#stages span{background:#edf3f5;border-radius:20px;padding:6px 14px}@media(max-width:600px){header span{display:none}h1{font-size:36px}main{margin-top:26px}.metrics{grid-template-columns:repeat(2,1fr)}}
+:is(#fleet-status) p{padding:10px 14px;background:#e4f1eb;border-left:4px solid #229477;overflow-wrap:anywhere}#fleet-status p.warning{background:#fff1d7;border-color:#bd861e}
+</style></head>
+<body><header>∴ PROOF / LAB <span>LIVE EXPERIMENT STATUS</span></header><main>
+<p class="eyebrow">THE PROOF OBSERVATORY</p><h1>Problem status</h1>
+<p>Live workers, proof stages, and verified results. Select a problem for its dependency graph and issue / PR links.</p>
+<p id="coverage" role="status">Checking observation freshness…</p>
+<section class="metrics" aria-label="Experiment activity">
+<article id="controller-metric"><span>Controllers alive</span><strong id="controllers">—</strong></article>
+<article id="fleet-metric" hidden><span>Fleet nodes observed / capacity</span><strong id="fleet-nodes">—</strong></article>
+<article><span>Working issue jobs</span><strong id="working">—</strong></article>
+<article><span>Idle pollers</span><strong id="idle">—</strong></article>
+<article><span>Live model processes</span><strong id="models">—</strong></article>
+<article><span>Verified root problems</span><strong id="verified-roots">—</strong></article>
+</section><p class="explanation">Working / idle counts come from a fresh worker roster; model processes are observed separately on the host.
+Shared Docker capacity and idle pollers are counted once per fleet; problem rows show only matched issue jobs. Remote process counts remain unobserved.
+An idle poller is waiting for ready work, not a stopped experiment. Model processes may include nested sessions and are not a count of solved problems.</p>
+<section class="panel" id="fleet-panel" hidden><h2>Shared Docker fleet</h2><div id="fleet-status"></div></section>
+<section class="panel"><h2>Saved root proof stages</h2><p id="stages">Loading…</p>
+<p class="explanation">Stages are durable checkpoints, not proof that an agent is currently executing. Verified results require the workflow's proof checks.</p></section>
+<section class="panel"><h2>All problems</h2><div class="table-scroll"><table><thead><tr><th>Problem / run</th><th>Execution source</th><th>Issue workers</th><th>Live processes</th><th>Root stage</th><th>Theorems verified</th><th>Observed (UTC)</th></tr></thead><tbody><tr data-path="theorem-status/feit-thompson-50c2385062/20261010t104548z-6bb87adb65"><td><a href="feit-thompson-50c2385062/20261010t104548z-6bb87adb65/index.html">feit_thompson</a><small>20261010T104548Z-6bb87adb65</small></td><td data-field="controller">Unconfirmed</td><td data-field="workers">Unconfirmed</td><td data-field="processes">Unconfirmed</td><td data-field="stage">Preparing</td><td data-field="proofs">0/0 verified</td><td data-field="updated">2026-10-10T10:46:33.450409Z</td></tr></tbody></table></div></section>
+<p class="explanation">Checks every 30 seconds; publication and GitHub caching can add delay. Observations older than 3 minutes are stale and excluded from live counts.
+Last known proof stages remain visible during outages. Missing data is unknown, never zero. No GitHub login is required for status; original private issue links may require access.</p>
+<noscript>Enable JavaScript for live worker counts. The table retains the last published proof snapshot.</noscript>
+</main><script id="catalog-data" type="application/json">[{"problem": "feit_thompson", "run": "20261010T104548Z-6bb87adb65", "phase": "Preparing", "verified": 0, "total": 0, "updated_at": "2026-10-10T10:46:33.450409Z", "repository": "ZhengyangZhang06/Feit", "summary": {"controller": "unobserved", "working": 1, "idle": null, "capacity": null, "model_processes": null, "lean_processes": null, "root_stage": "Preparing", "mode": "fleet", "fleet": {"id": "feit-coganchor-20261010", "capacity": 2, "observed_at": "2026-10-10T10:46:33.450409Z", "freshness_seconds": 180, "status": "observed", "workers": [{"node": "hoa1", "task": "anchor-b37a391687bd4c1a88ff6ae3f992543e", "phase": "working", "observed_at": "2026-10-10T10:46:33.450402Z", "fresh": true, "issue": 1, "project": "feit/feit_thompson", "polls": 1}, {"node": "hoa2", "task": "anchor-40f3ecfc038741359644ee411aa3b96a", "phase": "idle", "observed_at": "2026-10-10T10:46:18.446270Z", "fresh": true, "issue": null, "project": null, "polls": 0}], "jobs_known": true}, "fleet_project": "feit/feit_thompson", "processes_partial": false}, "path": "theorem-status/feit-thompson-50c2385062/20261010t104548z-6bb87adb65"}]</script><script>"use strict";
+(() => {
+  const records = JSON.parse(document.getElementById("catalog-data").textContent);
+  const rows = new Map([...document.querySelectorAll("tr[data-path]")].map(row => [row.dataset.path, row]));
+  const failures = new Set();
+  const freshTime = (value, seconds = 180) => Number.isFinite(Date.parse(value)) &&
+    Date.now() - Date.parse(value) >= -30000 && Date.now() - Date.parse(value) <= seconds * 1000;
+  const fresh = record => freshTime(record.updated_at);
+  const number = value => Number.isInteger(value) && value >= 0;
+  const processKnown = worker => worker.processes && freshTime(worker.processes.observed_at) &&
+    ["codex", "lean", "lake"].every(key => number(worker.processes[key]));
+  function fleetView(fleet) {
+    const current = fleet.status !== "unavailable" && freshTime(fleet.observed_at, fleet.freshness_seconds || 180) &&
+      Array.isArray(fleet.workers);
+    const nodes = new Map();
+    for (const worker of current ? fleet.workers : []) {
+      if (!freshTime(worker.observed_at, fleet.freshness_seconds || 180) || worker.phase === "stopped") continue;
+      const held = nodes.get(worker.node);
+      if (!held || (worker.phase === "working" && held.phase !== "working") ||
+          (worker.phase === held.phase && Date.parse(worker.observed_at) > Date.parse(held.observed_at))) nodes.set(worker.node, worker);
+    }
+    const workers = [...nodes.values()];
+    return {fleet, current, workers, jobsKnown: current && fleet.jobs_known === true,
+      partial: current && (!number(fleet.capacity) || workers.length < fleet.capacity)};
+  }
+  function draw() {
+    let known = 0, alive = 0, working = 0, idle = 0, models = 0, workerCoverage = 0, modelCoverage = 0, controllerCoverage = 0;
+    let fleetCoverage = 0, jobCoverage = 0, idleCoverage = 0, observedNodes = 0, capacity = 0, capacityCoverage = 0, partial = false;
+    let processPartial = false, processNodes = 0;
+    const local = records.filter(record => record.summary?.mode !== "fleet");
+    const fleets = new Map();
+    for (const record of records) {
+      const fleet = record.summary?.fleet;
+      if (record.summary?.mode !== "fleet" || !fleet?.id) continue;
+      const held = fleets.get(fleet.id);
+      if (!held || !Number.isFinite(Date.parse(held.observed_at)) ||
+          Date.parse(fleet.observed_at) >= Date.parse(held.observed_at)) fleets.set(fleet.id, fleet);
+    }
+    const views = new Map([...fleets].map(([id, fleet]) => [id, fleetView(fleet)]));
+    const fleetDetails = [];
+    for (const view of views.values()) {
+      const {fleet, current, workers, jobsKnown} = view;
+      fleetCoverage += current;
+      observedNodes += workers.length;
+      if (number(fleet.capacity)) { capacity += fleet.capacity; capacityCoverage++; }
+      if (jobsKnown) { working += workers.filter(worker => worker.phase === "working").length; jobCoverage++; }
+      if (current) { idle += workers.filter(worker => ["idle", "polling"].includes(worker.phase)).length; idleCoverage++; }
+      const measured = workers.filter(processKnown);
+      if (measured.length) {
+        models += measured.reduce((sum, worker) => sum + worker.processes.codex, 0);
+        modelCoverage++;
+      }
+      processNodes += measured.length;
+      processPartial ||= view.partial || measured.length !== workers.length;
+      partial ||= view.partial;
+      const paragraph = document.createElement("p");
+      paragraph.textContent = `${fleet.id}: ${current ? workers.length : "Unknown"} heartbeat-observed nodes / ${fleet.capacity ?? "unknown"} capacity · ` +
+        `${jobsKnown ? workers.filter(worker => worker.phase === "working").length : "Unknown"} observed issue jobs · ` +
+        `${measured.length}/${fleet.capacity ?? "?"} nodes with fresh process counts · ` +
+        `observed ${fleet.observed_at || "unknown"}${current ? view.partial ? " · partial coverage" : "" : " · STALE / unavailable"}`;
+      paragraph.classList.toggle("warning", !current || view.partial || !jobsKnown);
+      fleetDetails.push(paragraph);
+    }
+    const stages = new Map();
+    for (const record of records) {
+      const summary = record.summary || {}, row = rows.get(record.path), current = fresh(record);
+      const set = (field, value) => { row.querySelector(`[data-field="${field}"]`).textContent = value; };
+      known += current;
+      row.classList.toggle("stale", !current);
+      if (summary.mode === "fleet") {
+        const view = views.get(summary.fleet?.id);
+        const jobs = view?.workers.filter(worker => worker.phase === "working" && worker.project === summary.fleet_project) || [];
+        set("controller", view?.current ? "Docker · heartbeat observed" : "Docker · unknown / stale");
+        set("workers", view?.jobsKnown ? `${jobs.length} observed jobs${view.partial ? " (partial)" : ""}` : "Unknown / stale");
+        const measured = jobs.filter(processKnown);
+        const processComplete = view?.jobsKnown && !view.partial && measured.length === jobs.length;
+        set("processes", measured.length || processComplete ?
+          `${measured.reduce((s, w) => s + w.processes.codex, 0)} model · ${measured.reduce((s, w) => s + w.processes.lean, 0)} Lean${processComplete ? "" : " (partial)"}` : "Remote · unobserved");
+        row.classList.toggle("live", Boolean(view?.current && jobs.length));
+        row.classList.toggle("stale", !current || !view?.current);
+      } else {
+        const controllerKnown = current && ["running", "stopped"].includes(summary.controller);
+        controllerCoverage += controllerKnown;
+        alive += controllerKnown && summary.controller === "running";
+        const workersKnown = current && number(summary.working) && number(summary.idle);
+        const modelsKnown = current && number(summary.model_processes);
+        if (workersKnown) { working += summary.working; idle += summary.idle; workerCoverage++; jobCoverage++; idleCoverage++; }
+        if (modelsKnown) { models += summary.model_processes; modelCoverage++; }
+        row.classList.toggle("live", controllerKnown && summary.controller === "running");
+        set("controller", controllerKnown ? summary.controller : "Unknown / stale");
+        set("workers", workersKnown ? `${summary.working} working · ${summary.idle} idle` : "Unknown / stale");
+        set("processes", modelsKnown ? `${summary.model_processes} model · ${summary.lean_processes ?? "?"} Lean` : "Unknown / stale");
+      }
+      set("stage", summary.root_stage || record.phase);
+      set("proofs", `${record.verified}/${record.total} verified`);
+      set("updated", `${record.updated_at}${current ? "" : " · STALE"}${failures.has(record.path) ? " · fetch failed" : ""}`);
+      const stage = summary.root_stage || record.phase;
+      stages.set(stage, (stages.get(stage) || 0) + 1);
+    }
+    const sources = local.length + fleets.size;
+    const count = (value, coverage, expected = sources, incomplete = partial) => coverage ? `${value}${coverage < expected || incomplete ? " (partial)" : ""}` : "Unknown";
+    document.getElementById("controllers").textContent = controllerCoverage ? `${alive} / ${local.length}${controllerCoverage < local.length ? " (partial)" : ""}` : "Unknown";
+    document.getElementById("controller-metric").hidden = !local.length;
+    document.getElementById("fleet-metric").hidden = !fleets.size;
+    document.getElementById("fleet-panel").hidden = !fleets.size;
+    document.getElementById("fleet-status").replaceChildren(...fleetDetails);
+    document.getElementById("fleet-nodes").textContent = `${fleetCoverage ? observedNodes : "Unknown"} / ${capacityCoverage ? capacity : "Unknown"}${fleetCoverage < fleets.size || capacityCoverage < fleets.size ? " (partial)" : ""}`;
+    document.getElementById("working").textContent = count(working, jobCoverage);
+    document.getElementById("idle").textContent = count(idle, idleCoverage);
+    document.getElementById("models").textContent = count(models, modelCoverage, sources, processPartial);
+    document.getElementById("models").title = "Observed Codex OS processes, not active API requests. Missing or stale node reports are excluded.";
+    document.getElementById("verified-roots").textContent = `${records.filter(r => r.phase === "Verified").length} / ${records.length}`;
+    const coverage = document.getElementById("coverage");
+    coverage.textContent = `${known}/${records.length} fresh problem observations` +
+      (fleets.size ? ` · ${fleetCoverage}/${fleets.size} shared fleets observed; each physical node counted once` : "") +
+      (local.length ? ` · ${controllerCoverage}/${local.length} controllers observed · ${workerCoverage}/${local.length} local worker rosters observed` : "") +
+      (fleets.size ? ` · process counts observed on ${processNodes}/${capacityCoverage ? capacity : "?"} fleet nodes` : ` · ${modelCoverage}/${local.length} process counts observed`) +
+      (known < records.length ? ". Stale observations are excluded from live counts; last known stages are retained." : ".") +
+      (failures.size ? ` ${failures.size} feeds could not be refreshed; retaining their last observations.` : "");
+    coverage.classList.toggle("warning", known < records.length || workerCoverage < local.length || fleetCoverage < fleets.size || partial || failures.size > 0);
+    const badges = [...stages].sort().map(([name, count]) => {
+      const element = document.createElement("span"); element.textContent = `${count} ${name}`; return element;
+    });
+    document.getElementById("stages").replaceChildren(...badges);
+  }
+  function apply(record, payload) {
+    const data = payload.snapshot;
+    if (!data || data.repository !== record.repository || data.run !== record.run || data.problem !== record.problem ||
+        !Number.isFinite(Date.parse(data.updated_at)) || Date.parse(data.updated_at) > Date.now() + 30000) throw new Error("Wrong feed");
+    if (!Number.isFinite(Date.parse(record.updated_at)) || Date.parse(data.updated_at) >= Date.parse(record.updated_at)) {
+      for (const key of ["updated_at", "phase", "verified", "total", "summary"]) record[key] = data[key];
+      draw();
+    }
+  }
+  let fetching = false;
+  async function poll() {
+    if (fetching) return;
+    fetching = true;
+    try {
+      await Promise.all(records.map(async record => {
+        if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(record.repository || "")) return;
+        const base = `https://raw.githubusercontent.com/${record.repository}/status-live/${record.path}`;
+        // Never request future paths. A recent bucket helps when this minute isn't published yet.
+        const buckets = [0, 60000].map(offset => new Date(Date.now() - offset).toISOString().slice(0, 16).replace(/[-:]/g, ""));
+        let success = false;
+        await Promise.allSettled([`${base}/live.json`, ...buckets.map(b => `${base}/ticks/${b}.json`)].map(async url => {
+          const response = await fetch(url, {cache: "no-store", credentials: "omit", signal: AbortSignal.timeout(10000)});
+          if (!response.ok) throw new Error("Unavailable");
+          apply(record, await response.json()); // Apply immediately, without waiting for a stalled peer.
+          success = true; failures.delete(record.path);
+        }));
+        if (!success) failures.add(record.path);
+      }));
+    } finally { fetching = false; draw(); }
+  }
+  draw(); poll();
+  setInterval(poll, 30000); setInterval(draw, 10000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) poll(); });
+  window.addEventListener("online", poll);
+})();
+</script></body></html>
