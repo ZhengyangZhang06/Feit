@@ -1,0 +1,30 @@
+{
+  "id": "feit_thompson",
+  "title": "Feit–Thompson odd-order theorem",
+  "status": "archived",
+  "statement_revision": 1,
+  "tags": [],
+  "sets": [],
+  "url": "problems/feit_thompson/",
+  "stable_url": "problems/feit_thompson/",
+  "sort_index": 124,
+  "group": "formalization-evaluation",
+  "other_model_ids": [
+    "axiom-prover-axiom-math",
+    "deepseek-v4-and-gpt-5-x",
+    "gpt-5-6",
+    "tau-caj-al",
+    "various-model-deepseek-v4-gpt-5",
+    "various-models-with-human-in-the-loop"
+  ],
+  "other_model_labels_legacy": [
+    "Axiom Prover (Axiom Math)",
+    "GPT-5.6",
+    "Tau (caj.al)",
+    "Various models ( with human in the loop )",
+    "deepseek-v4 and gpt-5.x",
+    "various model (deepseek-v4, gpt-5.*)"
+  ],
+  "problem_url": "https://leanprover.github.io/lean-eval-leaderboard/problems/feit_thompson/",
+  "benchmark_commit": "38361be884302c7edce1908c4aef8296eb2cb27e"
+}
